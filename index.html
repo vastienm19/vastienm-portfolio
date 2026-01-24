@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vastienm | Film Editor</title>
+    <!-- Fonts: Oswald (Titles) & JetBrains Mono (Tech) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Oswald:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- OVERLAYS (Fixed "Cinema Screen" Elements) -->
+    <div class="ui-overlay">
+        <!-- Timecode -->
+        <div class="timecode">REC 00:04:20:26</div>
+        <!-- Safe Areas (Crop Marks Frame) -->
+        <div class="safe-area-lines">
+            <div class="corner-bl"></div>
+            <div class="corner-br"></div>
+        </div>
+    </div>
+
+    <!-- MAIN SCROLLABLE CONTENT -->
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Vastienm<span class="dot">.</span></h1>
+            <div class="hero-subtitle">
+                video editor <span class="text-accent">&</span> storyteller
+            </div>
+        </div>
+    </section>
+
+    <!-- Showreel Section -->
+    <section class="section-showreel">
+        <div class="container">
+            <div class="mono" style="color:var(--c-blue);">// 01. SELECTED WORKS</div>
+            <h2 style="font-size:2rem; margin-top:0.5rem;">The Reel</h2>
+
+            <div class="video-wrapper">
+                <button class="play-btn">Play Showreel</button>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; margin-top:1rem; color:#666; font-size:0.8rem;">
+                <span>DURATION: 01:45</span>
+                <span>RES: 4K DCI</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Identity Specs Section -->
+    <section class="section-identity">
+        <div class="container">
+            <div class="mono" style="color:var(--c-blue);">// 02. SYSTEM IDENTITY</div>
+
+            <div class="specs-grid">
+                <!-- Color Specs -->
+                <div class="spec-block">
+                    <h3>PALETTE</h3>
+
+                    <div class="color-row">
+                        <div class="color-dot" style="background: #FFD700;"></div>
+                        <div>
+                            <div>VASTIENM YELLOW</div>
+                            <div class="mono" style="font-size:0.8rem; color:#666;">#FFD700</div>
+                        </div>
+                    </div>
+
+                    <div class="color-row">
+                        <div class="color-dot" style="background: #121212; border:1px solid #444;"></div>
+                        <div>
+                            <div>DEEP BLACK</div>
+                            <div class="mono" style="font-size:0.8rem; color:#666;">#121212</div>
+                        </div>
+                    </div>
+
+                    <div class="color-row">
+                        <div class="color-dot" style="background: #00A3FF;"></div>
+                        <div>
+                            <div>ELECTRIC BLUE</div>
+                            <div class="mono" style="font-size:0.8rem; color:#666;">#00A3FF</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Type Specs -->
+                <div class="spec-block">
+                    <h3>TYPOGRAPHY</h3>
+
+                    <div style="margin-bottom: 3rem;">
+                        <div class="type-lg">CINEMA</div>
+                        <div class="mono" style="color:#666; margin-top:0.5rem;">Font: Oswald Bold</div>
+                    </div>
+
+                    <div>
+                        <div class="type-sm">
+                            code & script <span class="text-accent">&</span> edit
+                        </div>
+                        <div class="mono" style="color:#666; margin-top:0.5rem;">Font: JetBrains Mono</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>EST. 2026 — BUENOS AIRES</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
