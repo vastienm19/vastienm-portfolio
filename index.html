@@ -17,55 +17,51 @@
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body { background-color: var(--c-black); color: white; font-family: var(--f-body); overflow-x: hidden; }
 
-        /* --- LOGO DINÁMICO (Efecto Pomelli) --- */
+        /* --- LOGO DISEÑADO (Exacto a tu imagen) --- */
         header {
             position: fixed;
             top: 0; width: 100%;
-            height: 180px;
+            height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 1000;
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .logo-container { 
-            text-align: center; 
-            transition: all 0.6s ease;
-        }
+        .logo-container { text-align: center; transition: all 0.7s ease; }
 
         .logo-main {
             font-family: var(--f-title);
-            font-size: 4rem; /* Impacto inicial */
+            font-size: 4.5rem; /* Tamaño de impacto */
             font-weight: 800;
             color: var(--c-yellow);
             text-transform: uppercase;
-            letter-spacing: -4px; /* Letras compactas como tu logo */
-            line-height: 0.7;
+            letter-spacing: -5px; /* CLAVE: Letras pegadas como tu logo */
+            line-height: 0.75;
             display: block;
         }
 
         .logo-sub {
             font-family: var(--f-body);
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-style: italic;
-            color: #fff;
+            color: #ffffff;
             display: block;
-            margin-top: 10px;
+            margin-top: 8px;
             letter-spacing: 1px;
-            opacity: 0.9;
         }
 
-        /* ESTADO AL SCROLLEAR: Se achica y se va a la izquierda */
+        /* LOGO CUANDO SCROLLEAS (Se va a la esquina) */
         header.scrolled {
-            height: 80px;
+            height: 90px;
             background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
             justify-content: flex-start;
             padding-left: 40px;
         }
-        header.scrolled .logo-main { font-size: 1.6rem; letter-spacing: -1px; }
-        header.scrolled .logo-sub { font-size: 0.7rem; margin-top: 2px; }
+        header.scrolled .logo-main { font-size: 1.8rem; letter-spacing: -1.5px; }
+        header.scrolled .logo-sub { font-size: 0.8rem; margin-top: 2px; }
 
         /* --- MENÚ LATERAL --- */
         .menu-btn {
@@ -80,130 +76,14 @@
             border-bottom: 1px solid var(--c-yellow);
         }
 
-        /* --- SECCIONES CON BORDE (Referencia Pomelli) --- */
+        /* --- SECCIONES CON MARCO (Estilo Pomelli) --- */
         section {
             height: 100vh;
-            padding: 80px 40px 40px 40px; /* Espacio para que respire */
+            padding: 100px 40px 40px 40px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .border-box {
+        .border-frame {
             position: relative;
-            width: 100%;
-            height: 100%;
-            border: 1px solid rgba(255, 215, 0, 0.2); /* Borde dorado tenue */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .bg-img {
-            position: absolute;
-            width: calc(100% - 40px);
-            height: calc(100% - 40px);
-            object-fit: cover;
-            opacity: 0.4;
-            transition: transform 1.5s ease, opacity 0.8s ease;
-        }
-
-        section:hover .bg-img {
-            transform: scale(1.05);
-            opacity: 0.5;
-        }
-
-        .content { position: relative; z-index: 10; text-align: center; }
-
-        h2 {
-            font-family: var(--f-title);
-            font-size: clamp(3.5rem, 15vw, 8rem);
-            text-transform: uppercase;
-            color: var(--c-yellow);
-            letter-spacing: -3px;
-            line-height: 0.8;
-        }
-
-        .content p {
-            font-family: var(--f-body);
-            font-size: 2.2rem;
-            font-style: italic;
-            margin-top: 15px;
-        }
-
-        .btn-minimal {
-            display: inline-block;
-            margin-top: 40px;
-            padding: 12px 30px;
-            border: 1px solid var(--c-yellow);
-            color: var(--c-yellow);
-            text-decoration: none;
-            font-family: var(--f-title);
-            font-size: 0.7rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            transition: 0.4s;
-        }
-        .btn-minimal:hover { background: var(--c-yellow); color: black; }
-
-        footer { padding: 40px; text-align: center; opacity: 0.3; font-size: 0.7rem; letter-spacing: 5px; }
-    </style>
-</head>
-<body>
-
-    <div class="menu-btn">MENU</div>
-
-    <header id="header">
-        <div class="logo-container">
-            <span class="logo-main">VASTIENM</span>
-            <span class="logo-sub">visual storyteller</span>
-        </div>
-    </header>
-
-    <section>
-        <div class="border-box">
-            <img src="filmmaker.jpg" class="bg-img">
-            <div class="content">
-                <h2>Filmmaker</h2>
-                <p>Capturando la esencia</p>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="border-box">
-            <img src="edicion.png" class="bg-img">
-            <div class="content">
-                <h2>Edición</h2>
-                <p>Narrativa con ritmo</p>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="border-box">
-            <img src="drone.jpg" class="bg-img">
-            <div class="content">
-                <h2>Drone</h2>
-                <p>Nuevas perspectivas</p>
-                <a href="https://wa.me/?text=Hola%20Vastienm" class="btn-minimal">CONTACTO</a>
-            </div>
-        </div>
-    </section>
-
-    <footer>BUENOS AIRES • 2026</footer>
-
-    <script>
-        // Script para el movimiento del logo al scrollear
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-    </script>
-</body>
-</html>
