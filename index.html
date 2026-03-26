@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VASTIENM | Visual Storyteller</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Cormorant+Garamond:italic,wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Cormorant+Garamond:italic,wght@500&display=swap" rel="stylesheet">
     <style>
         :root {
             --c-yellow: #FFD700;
@@ -17,134 +17,152 @@
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body { background-color: var(--c-black); color: white; font-family: var(--f-body); overflow-x: hidden; }
 
-        /* --- LOGO ANIMADO (Scroll) --- */
+        /* --- LOGO DINÁMICO (Efecto Pomelli) --- */
         header {
             position: fixed;
             top: 0; width: 100%;
-            height: 120px;
+            height: 180px;
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 1000;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .logo-container { text-align: center; transition: all 0.5s; }
+        .logo-container { 
+            text-align: center; 
+            transition: all 0.6s ease;
+        }
+
         .logo-main {
             font-family: var(--f-title);
-            font-size: 3rem;
+            font-size: 4rem; /* Impacto inicial */
+            font-weight: 800;
             color: var(--c-yellow);
             text-transform: uppercase;
-            letter-spacing: -2px;
-            line-height: 0.8;
+            letter-spacing: -4px; /* Letras compactas como tu logo */
+            line-height: 0.7;
+            display: block;
         }
+
         .logo-sub {
             font-family: var(--f-body);
-            font-size: 1.1rem;
+            font-size: 1.4rem;
             font-style: italic;
-            opacity: 0.8;
+            color: #fff;
+            display: block;
+            margin-top: 10px;
+            letter-spacing: 1px;
+            opacity: 0.9;
         }
 
-        /* Clase que se activa al scrollear (vía JS abajo) */
+        /* ESTADO AL SCROLLEAR: Se achica y se va a la izquierda */
         header.scrolled {
             height: 80px;
-            justify-content: flex-start;
-            padding-left: 30px;
-            background: rgba(10,10,10,0.9);
+            background: rgba(10, 10, 10, 0.95);
             backdrop-filter: blur(10px);
+            justify-content: flex-start;
+            padding-left: 40px;
         }
-        header.scrolled .logo-main { font-size: 1.5rem; letter-spacing: -1px; }
-        header.scrolled .logo-sub { font-size: 0.7rem; }
+        header.scrolled .logo-main { font-size: 1.6rem; letter-spacing: -1px; }
+        header.scrolled .logo-sub { font-size: 0.7rem; margin-top: 2px; }
 
         /* --- MENÚ LATERAL --- */
-        .menu-trigger {
+        .menu-btn {
             position: fixed;
-            top: 35px; right: 30px;
+            top: 35px; right: 40px;
             z-index: 1100;
-            cursor: pointer;
             font-family: var(--f-title);
             font-size: 0.8rem;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             color: var(--c-yellow);
-            text-transform: uppercase;
+            cursor: pointer;
+            border-bottom: 1px solid var(--c-yellow);
         }
 
-        /* --- SECCIONES (Estilo Pomelli) --- */
+        /* --- SECCIONES CON BORDE (Referencia Pomelli) --- */
         section {
             height: 100vh;
-            padding: 10vh 5vw; /* Margen para que respire */
+            padding: 80px 40px 40px 40px; /* Espacio para que respire */
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .image-wrapper {
+        .border-box {
             position: relative;
             width: 100%;
             height: 100%;
-            border: 1px solid rgba(255,255,255,0.15); /* Borde fino elegante */
-            padding: 15px; /* Separación interna */
-            overflow: hidden;
+            border: 1px solid rgba(255, 215, 0, 0.2); /* Borde dorado tenue */
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow: hidden;
         }
 
         .bg-img {
             position: absolute;
-            top: 15px; left: 15px;
-            width: calc(100% - 30px);
-            height: calc(100% - 30px);
+            width: calc(100% - 40px);
+            height: calc(100% - 40px);
             object-fit: cover;
             opacity: 0.4;
-            filter: grayscale(30%);
-            transition: 0.8s;
+            transition: transform 1.5s ease, opacity 0.8s ease;
         }
 
-        section:hover .bg-img { opacity: 0.6; filter: grayscale(0%); }
+        section:hover .bg-img {
+            transform: scale(1.05);
+            opacity: 0.5;
+        }
 
         .content { position: relative; z-index: 10; text-align: center; }
 
         h2 {
             font-family: var(--f-title);
-            font-size: clamp(3.5rem, 15vw, 7rem);
+            font-size: clamp(3.5rem, 15vw, 8rem);
             text-transform: uppercase;
             color: var(--c-yellow);
+            letter-spacing: -3px;
             line-height: 0.8;
-            margin-bottom: 15px;
         }
 
-        p { font-size: 2rem; font-style: italic; color: white; }
+        .content p {
+            font-family: var(--f-body);
+            font-size: 2.2rem;
+            font-style: italic;
+            margin-top: 15px;
+        }
 
-        .btn {
+        .btn-minimal {
             display: inline-block;
-            margin-top: 3rem;
-            padding: 1rem 2.5rem;
+            margin-top: 40px;
+            padding: 12px 30px;
             border: 1px solid var(--c-yellow);
             color: var(--c-yellow);
             text-decoration: none;
             font-family: var(--f-title);
             font-size: 0.7rem;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             text-transform: uppercase;
+            transition: 0.4s;
         }
+        .btn-minimal:hover { background: var(--c-yellow); color: black; }
 
-        footer { padding: 4rem; text-align: center; font-size: 0.7rem; opacity: 0.4; letter-spacing: 4px; }
+        footer { padding: 40px; text-align: center; opacity: 0.3; font-size: 0.7rem; letter-spacing: 5px; }
     </style>
 </head>
 <body>
 
-    <div class="menu-trigger">MENU</div>
+    <div class="menu-btn">MENU</div>
 
-    <header id="main-header">
+    <header id="header">
         <div class="logo-container">
             <span class="logo-main">VASTIENM</span>
             <span class="logo-sub">visual storyteller</span>
         </div>
     </header>
 
-    <section id="filmmaker">
-        <div class="image-wrapper">
+    <section>
+        <div class="border-box">
             <img src="filmmaker.jpg" class="bg-img">
             <div class="content">
                 <h2>Filmmaker</h2>
@@ -153,9 +171,9 @@
         </div>
     </section>
 
-    <section id="edicion">
-        <div class="image-wrapper">
-            <img src="edicion.png" class="bg-img" onerror="this.src='edicion .png'">
+    <section>
+        <div class="border-box">
+            <img src="edicion.png" class="bg-img">
             <div class="content">
                 <h2>Edición</h2>
                 <p>Narrativa con ritmo</p>
@@ -163,13 +181,13 @@
         </div>
     </section>
 
-    <section id="drone">
-        <div class="image-wrapper">
+    <section>
+        <div class="border-box">
             <img src="drone.jpg" class="bg-img">
             <div class="content">
                 <h2>Drone</h2>
                 <p>Nuevas perspectivas</p>
-                <a href="https://wa.me/?text=Hola%20Vastienm" class="btn">Presupuesto</a>
+                <a href="https://wa.me/?text=Hola%20Vastienm" class="btn-minimal">CONTACTO</a>
             </div>
         </div>
     </section>
@@ -177,16 +195,15 @@
     <footer>BUENOS AIRES • 2026</footer>
 
     <script>
-        // Lógica para mover el logo al scrollear
-        window.onscroll = function() {
-            const header = document.getElementById("main-header");
-            if (window.pageYOffset > 50) {
-                header.classList.add("scrolled");
+        // Script para el movimiento del logo al scrollear
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
             } else {
-                header.classList.remove("scrolled");
+                header.classList.remove('scrolled');
             }
-        };
+        });
     </script>
-
 </body>
 </html>
