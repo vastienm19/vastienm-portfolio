@@ -23,26 +23,33 @@
             text-align: center;
             position: fixed;
             width: 100%;
-            z-index: 10;
-            background: linear-gradient(to bottom, rgba(10,10,10,1), rgba(10,10,10,0));
+            z-index: 100; /* Asegura que esté arriba de todo */
+            background: linear-gradient(to bottom, rgba(10,10,10,0.9), rgba(10,10,10,0));
         }
 
-        /* --- Logo Escrito (Sin fondo, siempre limpio) --- */
-        .logo-text {
+        /* --- LOGO ESCRITO (Adiós al cuadrado negro) --- */
+        .brand {
+            text-decoration: none;
+            display: inline-block;
+        }
+        .logo-main {
             font-family: var(--f-title);
             font-size: 2.2rem;
             color: var(--c-yellow);
             text-transform: uppercase;
             letter-spacing: -1px;
             line-height: 1;
+            display: block;
         }
         .logo-sub {
             font-family: var(--f-body);
             font-size: 1rem;
             font-style: italic;
+            color: white;
             display: block;
-            margin-top: 5px;
+            margin-top: 2px;
             letter-spacing: 1px;
+            opacity: 0.8;
         }
 
         section {
@@ -71,9 +78,10 @@
             text-transform: uppercase;
             color: var(--c-yellow);
             line-height: 0.85;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.5);
         }
 
-        p { font-size: 1.5rem; font-style: italic; margin-top: 10px; }
+        .content p { font-size: 1.5rem; font-style: italic; margin-top: 10px; }
 
         .contact-btn {
             display: inline-block;
@@ -86,6 +94,7 @@
             text-transform: uppercase;
             font-size: 0.9rem;
             transition: 0.3s;
+            background: rgba(0,0,0,0.4);
         }
 
         .contact-btn:hover { background: var(--c-yellow); color: black; }
@@ -96,38 +105,6 @@
 <body>
 
     <header>
-        <div class="logo-text">
-            VASTIENM
+        <div class="brand">
+            <span class="logo-main">VASTIENM</span>
             <span class="logo-sub">visual storyteller</span>
-        </div>
-    </header>
-
-    <section>
-        <img src="filmmaker.jpg" class="bg-img">
-        <div class="content">
-            <h2>Filmmaker</h2>
-            <p>Capturando la esencia</p>
-        </div>
-    </section>
-
-    <section>
-        <img src="edicion%20.png" class="bg-img">
-        <div class="content">
-            <h2>Edición</h2>
-            <p>Narrativa con ritmo</p>
-        </div>
-    </section>
-
-    <section>
-        <img src="drone.jpg" class="bg-img">
-        <div class="content">
-            <h2>Drone</h2>
-            <p>Nuevas perspectivas</p>
-            <a href="https://wa.me/?text=Hola%20Vastienm" class="contact-btn">Solicitar Presupuesto</a>
-        </div>
-    </section>
-
-    <footer>BUENOS AIRES • 2026</footer>
-
-</body>
-</html>
