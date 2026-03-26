@@ -3,37 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VASTIENM</title>
+    <title>VASTIENM | Visual Storyteller</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Cormorant+Garamond:italic,wght@600&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { 
-            background-color: #0a0a0a; 
-            color: white; 
-            font-family: 'Helvetica', 'Arial', sans-serif; 
+        :root {
+            --c-yellow: #FFD700;
+            --c-black: #0a0a0a;
+            --f-title: 'Syne', sans-serif;
+            --f-body: 'Cormorant Garamond', serif;
         }
 
-        /* BARRA SUPERIOR FIJA (Muy fina para no tapar nada) */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--c-black); color: white; font-family: var(--f-body); overflow-x: hidden; }
+
+        /* HEADER EN LA ESQUINA (No tapa el centro) */
         header {
             position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1rem;
-            background: rgba(10, 10, 10, 0.9);
+            top: 30px;
+            left: 30px;
             z-index: 100;
-            text-align: center;
-            border-bottom: 1px solid #222;
+            text-align: left;
+            pointer-events: none; /* Para que no moleste al scrollear */
         }
 
-        .brand-name {
-            color: #FFD700;
-            font-weight: 900;
-            font-size: 1.2rem;
-            letter-spacing: 2px;
+        .logo-main {
+            font-family: var(--f-title);
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--c-yellow);
             text-transform: uppercase;
+            letter-spacing: -1px;
+            line-height: 0.8;
+            display: block;
+        }
+        
+        .logo-sub {
+            font-family: var(--f-body);
+            font-size: 0.9rem;
+            font-style: italic;
+            color: white;
+            display: block;
+            margin-top: 5px;
+            letter-spacing: 1px;
+            opacity: 0.8;
         }
 
-        /* SECCIONES SCROLLEABLES */
         section {
             height: 100vh;
             width: 100%;
@@ -41,74 +56,59 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
         .bg-img {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             object-fit: cover;
-            opacity: 0.4; /* Oscurece la foto para resaltar el texto */
+            opacity: 0.45;
         }
 
-        .content {
-            position: relative;
-            z-index: 10;
-            text-align: center;
-            padding-top: 50px; /* Para que no lo pise el header al cargar */
-        }
+        .content { position: relative; z-index: 2; text-align: center; }
 
         h2 {
+            font-family: var(--f-title);
             font-size: clamp(3rem, 15vw, 6rem);
-            color: #FFD700;
             text-transform: uppercase;
-            line-height: 0.9;
+            color: var(--c-yellow);
+            line-height: 0.85;
+            letter-spacing: -2px;
         }
 
-        p {
-            font-size: 1.5rem;
-            font-style: italic;
-            margin-top: 10px;
-            color: #ddd;
-        }
+        p { font-size: 1.8rem; font-style: italic; margin-top: 10px; color: #eee; }
 
         .contact-btn {
             display: inline-block;
             margin-top: 2rem;
-            padding: 1rem 2rem;
-            border: 2px solid #FFD700;
-            color: #FFD700;
+            padding: 1.2rem 2.5rem;
+            border: 2px solid var(--c-yellow);
+            color: var(--c-yellow);
             text-decoration: none;
-            font-weight: bold;
+            font-family: var(--f-title);
             text-transform: uppercase;
-            transition: 0.3s;
+            font-size: 0.9rem;
+            font-weight: 800;
+            background: rgba(0,0,0,0.4);
+            pointer-events: auto;
         }
 
-        .contact-btn:hover {
-            background: #FFD700;
-            color: black;
-        }
-
-        footer {
-            padding: 2rem;
-            text-align: center;
-            background: #0a0a0a;
-            color: #444;
-            font-size: 0.8rem;
-        }
+        footer { padding: 2rem; text-align: center; font-size: 0.7rem; color: #444; letter-spacing: 2px; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="brand-name">VASTIENM</div>
+        <div class="logo-text">
+            <span class="logo-main">VASTIENM</span>
+            <span class="logo-sub">visual storyteller</span>
+        </div>
     </header>
 
     <section>
-        <img src="filmmaker.jpg" class="bg-img" alt="Filmmaker">
+        <img src="filmmaker.jpg" class="bg-img">
         <div class="content">
             <h2>Filmmaker</h2>
             <p>Capturando la esencia</p>
@@ -116,7 +116,7 @@
     </section>
 
     <section>
-        <img src="edicion.png" class="bg-img" alt="Edición">
+        <img src="edicion.png" class="bg-img">
         <div class="content">
             <h2>Edición</h2>
             <p>Narrativa con ritmo</p>
@@ -124,15 +124,5 @@
     </section>
 
     <section>
-        <img src="drone.jpg" class="bg-img" alt="Drone">
-        <div class="content">
-            <h2>Drone</h2>
-            <p>Nuevas perspectivas</p>
-            <a href="https://wa.me/?text=Hola%20Vastienm" class="contact-btn">Contacto</a>
-        </div>
-    </section>
-
-    <footer>BUENOS AIRES • 2026</footer>
-
-</body>
-</html>
+        <img src="drone.jpg" class="bg-img">
+        <div class="
