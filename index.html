@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VASTIENM | Visual Storyteller</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Cormorant+Garamond:italic,wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Cormorant+Garamond:italic,wght@600&display=swap" rel="stylesheet">
     <style>
         :root {
             --c-yellow: #FFD700;
@@ -16,29 +16,35 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        body {
-            background-color: var(--c-black);
-            color: white;
-            font-family: var(--f-body);
-        }
+        body { background-color: var(--c-black); color: white; font-family: var(--f-body); overflow-x: hidden; }
 
-        /* --- Header con Logo --- */
         header {
-            padding: 2.5rem 1rem;
+            padding: 3rem 1rem;
             text-align: center;
-            background: linear-gradient(to bottom, rgba(10,10,10,0.9), rgba(10,10,10,0));
             position: fixed;
             width: 100%;
             z-index: 10;
+            background: linear-gradient(to bottom, rgba(10,10,10,1), rgba(10,10,10,0));
         }
 
-        .logo-img {
-            max-width: 220px; /* Lo agrandé un poco para que se vea bien */
-            height: auto;
-            display: inline-block;
+        /* --- Logo Escrito (Sin fondo, siempre limpio) --- */
+        .logo-text {
+            font-family: var(--f-title);
+            font-size: 2.2rem;
+            color: var(--c-yellow);
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            line-height: 1;
+        }
+        .logo-sub {
+            font-family: var(--f-body);
+            font-size: 1rem;
+            font-style: italic;
+            display: block;
+            margin-top: 5px;
+            letter-spacing: 1px;
         }
 
-        /* --- Secciones Verticales --- */
         section {
             height: 100vh;
             width: 100%;
@@ -46,8 +52,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
         .bg-img {
@@ -55,36 +60,24 @@
             top: 0; left: 0;
             width: 100%; height: 100%;
             object-fit: cover;
-            opacity: 0.5;
+            opacity: 0.45;
         }
 
-        .content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            padding: 0 1.5rem;
-        }
+        .content { position: relative; z-index: 2; text-align: center; }
 
         h2 {
             font-family: var(--f-title);
-            font-size: clamp(2.8rem, 12vw, 4.5rem);
+            font-size: clamp(3rem, 12vw, 5rem);
             text-transform: uppercase;
-            line-height: 0.9;
-            margin-bottom: 0.5rem;
             color: var(--c-yellow);
-            text-shadow: 0 0 20px rgba(0,0,0,0.5);
+            line-height: 0.85;
         }
 
-        p {
-            font-size: clamp(1.3rem, 6vw, 2rem);
-            font-style: italic;
-            opacity: 1;
-            text-shadow: 0 0 10px rgba(0,0,0,0.8);
-        }
+        p { font-size: 1.5rem; font-style: italic; margin-top: 10px; }
 
         .contact-btn {
             display: inline-block;
-            margin-top: 2.5rem;
+            margin-top: 2rem;
             padding: 1.2rem 2.5rem;
             border: 2px solid var(--c-yellow);
             color: var(--c-yellow);
@@ -92,34 +85,25 @@
             font-family: var(--f-title);
             text-transform: uppercase;
             font-size: 0.9rem;
-            font-weight: bold;
-            letter-spacing: 2px;
             transition: 0.3s;
-            background: rgba(0,0,0,0.3);
         }
 
-        .contact-btn:hover {
-            background: var(--c-yellow);
-            color: black;
-        }
+        .contact-btn:hover { background: var(--c-yellow); color: black; }
 
-        footer {
-            padding: 3rem;
-            text-align: center;
-            font-size: 0.7rem;
-            color: #666;
-            letter-spacing: 3px;
-        }
+        footer { padding: 2rem; text-align: center; font-size: 0.7rem; color: #444; letter-spacing: 2px; }
     </style>
 </head>
 <body>
 
     <header>
-        <img src="logo.png" alt="VASTIENM" class="logo-img">
+        <div class="logo-text">
+            VASTIENM
+            <span class="logo-sub">visual storyteller</span>
+        </div>
     </header>
 
     <section>
-        <img src="filmmaker.jpg" class="bg-img" alt="Filmmaker">
+        <img src="filmmaker.jpg" class="bg-img">
         <div class="content">
             <h2>Filmmaker</h2>
             <p>Capturando la esencia</p>
@@ -127,7 +111,7 @@
     </section>
 
     <section>
-        <img src="edicion%20.png" class="bg-img" alt="Edición">
+        <img src="edicion%20.png" class="bg-img">
         <div class="content">
             <h2>Edición</h2>
             <p>Narrativa con ritmo</p>
@@ -135,7 +119,7 @@
     </section>
 
     <section>
-        <img src="drone.jpg" class="bg-img" alt="Drone">
+        <img src="drone.jpg" class="bg-img">
         <div class="content">
             <h2>Drone</h2>
             <p>Nuevas perspectivas</p>
@@ -143,9 +127,7 @@
         </div>
     </section>
 
-    <footer>
-        BUENOS AIRES • 2026
-    </footer>
+    <footer>BUENOS AIRES • 2026</footer>
 
 </body>
 </html>
