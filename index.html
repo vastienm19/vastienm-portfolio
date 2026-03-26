@@ -1,138 +1,106 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vastienm | Links</title>
+    <title>VASTIENM | Visual Storyteller</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Oswald:wght@400;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Cormorant+Garamond:italic,wght@400;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
     <style>
         :root {
             --c-yellow: #FFD700;
-            --c-black: #121212;
-            --c-grey: #2B2B2B;
-            --c-white: #F5F5F5;
-            --c-blue: #00A3FF;
-            --f-title: 'Oswald', sans-serif;
+            --c-black: #0a0a0a;
+            --c-grey: #1a1a1a;
+            --c-white: #ffffff;
+            --f-title: 'Syne', sans-serif;
+            --f-body: 'Cormorant Garamond', serif;
             --f-mono: 'JetBrains Mono', monospace;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background-color: var(--c-black);
             color: var(--c-white);
-            font-family: var(--f-mono);
+            font-family: var(--f-body);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 2rem;
+            padding: 4rem 1rem;
+            background-image: radial-gradient(circle at top, #1a1a1a 0%, #0a0a0a 100%);
+        }
+
+        /* --- Header / Logo --- */
+        .header {
             text-align: center;
-            background-image: radial-gradient(circle at center, #1a1a1a 0%, #121212 80%);
+            margin-bottom: 4rem;
+        }
+
+        .logo-container img {
+            max-width: 280px;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        .tagline {
+            font-family: var(--f-body);
+            font-style: italic;
+            font-size: 1.4rem;
+            color: rgba(255,255,255,0.7);
+            letter-spacing: 2px;
+        }
+
+        /* --- Portfolio Grid --- */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 1000px;
+            margin-bottom: 4rem;
+        }
+
+        .work-item {
             position: relative;
-        }
-
-        /* --- Safe Area / Overlays --- */
-        .safe-area-corner {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            border-color: var(--c-white);
-            border-style: solid;
-            border-width: 0;
-            opacity: 0.2;
-            pointer-events: none;
-        }
-
-        .tl {
-            top: 10px;
-            left: 10px;
-            border-top-width: 1px;
-            border-left-width: 1px;
-        }
-
-        .tr {
-            top: 10px;
-            right: 10px;
-            border-top-width: 1px;
-            border-right-width: 1px;
-        }
-
-        .bl {
-            bottom: 10px;
-            left: 10px;
-            border-bottom-width: 1px;
-            border-left-width: 1px;
-        }
-
-        .br {
-            bottom: 10px;
-            right: 10px;
-            border-bottom-width: 1px;
-            border-right-width: 1px;
-        }
-
-        /* --- Profile --- */
-        .profile-container {
-            margin-bottom: 2.5rem;
-        }
-
-        .profile-pic {
-            width: 100px;
-            height: 100px;
-            background-color: var(--c-grey);
-            border-radius: 50%;
-            border: 2px solid var(--c-yellow);
-            margin: 0 auto 1rem auto;
-            position: relative;
+            aspect-ratio: 16 / 9;
+            background: var(--c-grey);
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
         }
 
-        .profile-pic::after {
-            content: 'Vm';
-            font-family: var(--f-title);
-            font-size: 2.5rem;
-            color: var(--c-black);
-            font-weight: bold;
-            background: var(--c-yellow);
+        .work-item:hover {
+            transform: scale(1.02);
+            border-color: var(--c-yellow);
+        }
+
+        .work-item img {
             width: 100%;
             height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            object-fit: cover;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
         }
 
-        h1 {
+        .work-item:hover img { opacity: 0.9; }
+
+        .work-info {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
             font-family: var(--f-title);
-            font-size: 2.5rem;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 0.2rem;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
         }
 
-        .role {
-            font-size: 0.8rem;
-            color: var(--c-blue);
-            letter-spacing: 0.1em;
-        }
-
-        /* --- Buttons --- */
+        /* --- Links / Buttons --- */
         .links-container {
             width: 100%;
-            max-width: 380px;
+            max-width: 400px;
             display: flex;
             flex-direction: column;
             gap: 1rem;
@@ -141,87 +109,69 @@
         .link-btn {
             display: block;
             text-decoration: none;
-            padding: 1rem;
+            padding: 1.2rem;
             border: 1px solid rgba(255, 255, 255, 0.2);
             color: var(--c-white);
-            font-family: var(--f-mono);
-            font-weight: bold;
+            font-family: var(--f-title);
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            transition: all 0.2s ease;
-            background: rgba(0, 0, 0, 0.3);
-            font-size: 0.9rem;
+            text-align: center;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.03);
         }
 
         .link-btn:hover {
             background-color: var(--c-yellow);
-            border-color: var(--c-yellow);
             color: var(--c-black);
-            transform: scale(1.02);
-        }
-
-        .link-portfolio {
             border-color: var(--c-yellow);
-            color: var(--c-yellow);
-        }
-
-        .link-portfolio:hover {
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
         }
 
         /* --- Footer --- */
         footer {
             margin-top: auto;
-            padding-top: 3rem;
-            font-size: 0.7rem;
-            color: #555;
-            width: 100%;
+            padding-top: 5rem;
+            text-align: center;
         }
 
-        .real-time {
+        .timecode {
             font-family: var(--f-mono);
             color: var(--c-yellow);
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            margin-bottom: 5px;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
         }
+
+        .location { font-size: 0.6rem; letter-spacing: 3px; color: #444; }
     </style>
 </head>
-
 <body>
 
-    <div class="safe-area-corner tl"></div>
-    <div class="safe-area-corner tr"></div>
-    <div class="safe-area-corner bl"></div>
-    <div class="safe-area-corner br"></div>
+    <header class="header">
+        <div class="logo-container">
+            <h1 style="font-family: var(--f-title); font-size: 3rem; color: var(--c-yellow);">VASTIENM</h1>
+        </div>
+        <div class="tagline">Visual Storyteller</div>
+    </header>
 
-    <div class="profile-container">
-        <div class="profile-pic"></div>
-        <h1>Vastienm</h1>
-        <div class="role">Visual Storyteller</div>
+    <div class="portfolio-grid">
+        <div class="work-item">
+            <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=800&q=80" alt="Cinematography">
+            <div class="work-info">Cinematography</div>
+        </div>
+        <div class="work-item">
+            <img src="https://images.unsplash.com/photo-1506947411487-a56738267384?auto=format&fit=crop&w=800&q=80" alt="Aerial Drone">
+            <div class="work-info">Aerial Perspective</div>
+        </div>
     </div>
 
     <div class="links-container">
-        <!-- 1. Portfolio -->
-        <a href="index.html" class="link-btn link-portfolio">
-            Portafolio Profesional
-        </a>
-
-        <!-- 2. Instagram -->
-        <a href="https://www.instagram.com/vastienm" target="_blank" class="link-btn">
-            Instagram
-        </a>
-
-        <!-- 3. WhatsApp (Presupuesto) -->
-        <a href="https://wa.me/?text=Hola%20Vastienm,%20vi%20tu%20trabajo%20y%20quiero%20consultarte%20por%20un%20video"
-            target="_blank" class="link-btn">
-            Solicitar Presupuesto
-        </a>
+        <a href="https://www.instagram.com/vastienm" target="_blank" class="link-btn">Instagram</a>
+        <a href="https://wa.me/?text=Hola%20Vastienm" target="_blank" class="link-btn">WhatsApp</a>
     </div>
 
     <footer>
-        <div class="real-time" id="timecode">00:00:00:00</div>
-        <div>BUENOS AIRES • 2026</div>
+        <div class="timecode" id="timecode">00:00:00:00</div>
+        <div class="location">BUENOS AIRES • 2026</div>
     </footer>
 
     <script>
@@ -237,5 +187,4 @@
         updateTime();
     </script>
 </body>
-
 </html>
