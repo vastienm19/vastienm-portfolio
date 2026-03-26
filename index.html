@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VASTIENM | Visual Storyteller</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Cormorant+Garamond:italic,wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Cormorant+Garamond:italic,wght@500&display=swap" rel="stylesheet">
     <style>
         :root {
             --c-yellow: #FFD700;
@@ -19,37 +19,36 @@
         body { background-color: var(--c-black); color: white; font-family: var(--f-body); overflow-x: hidden; }
 
         header {
-            padding: 3rem 1rem;
+            padding: 3.5rem 1rem;
             text-align: center;
             position: fixed;
             width: 100%;
-            z-index: 100; /* Asegura que esté arriba de todo */
-            background: linear-gradient(to bottom, rgba(10,10,10,0.9), rgba(10,10,10,0));
+            z-index: 100;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.95), rgba(10,10,10,0));
         }
 
-        /* --- LOGO ESCRITO (Adiós al cuadrado negro) --- */
-        .brand {
-            text-decoration: none;
-            display: inline-block;
-        }
+        /* --- LOGO DISEÑADO CON CÓDIGO --- */
+        .brand { text-decoration: none; }
+        
         .logo-main {
             font-family: var(--f-title);
-            font-size: 2.2rem;
+            font-size: 2.5rem; /* Más grande */
+            font-weight: 800;
             color: var(--c-yellow);
             text-transform: uppercase;
-            letter-spacing: -1px;
-            line-height: 1;
+            letter-spacing: -2px; /* Letras más juntas como en tu logo */
+            line-height: 0.8;
             display: block;
         }
+        
         .logo-sub {
             font-family: var(--f-body);
-            font-size: 1rem;
+            font-size: 1.2rem;
             font-style: italic;
-            color: white;
+            color: #ddd;
             display: block;
-            margin-top: 2px;
+            margin-top: 4px;
             letter-spacing: 1px;
-            opacity: 0.8;
         }
 
         section {
@@ -74,14 +73,14 @@
 
         h2 {
             font-family: var(--f-title);
-            font-size: clamp(3rem, 12vw, 5rem);
+            font-size: clamp(3rem, 12vw, 5.5rem);
             text-transform: uppercase;
             color: var(--c-yellow);
+            letter-spacing: -2px;
             line-height: 0.85;
-            text-shadow: 0 5px 15px rgba(0,0,0,0.5);
         }
 
-        .content p { font-size: 1.5rem; font-style: italic; margin-top: 10px; }
+        .content p { font-size: 1.6rem; font-style: italic; margin-top: 10px; color: #eee; }
 
         .contact-btn {
             display: inline-block;
@@ -92,9 +91,10 @@
             text-decoration: none;
             font-family: var(--f-title);
             text-transform: uppercase;
+            font-weight: 800;
             font-size: 0.9rem;
             transition: 0.3s;
-            background: rgba(0,0,0,0.4);
+            background: rgba(0,0,0,0.5);
         }
 
         .contact-btn:hover { background: var(--c-yellow); color: black; }
@@ -108,3 +108,35 @@
         <div class="brand">
             <span class="logo-main">VASTIENM</span>
             <span class="logo-sub">visual storyteller</span>
+        </div>
+    </header>
+
+    <section>
+        <img src="filmmaker.jpg" class="bg-img">
+        <div class="content">
+            <h2>Filmmaker</h2>
+            <p>Capturando la esencia</p>
+        </div>
+    </section>
+
+    <section>
+        <img src="edicion.png" class="bg-img" alt="Edición">
+        <div class="content">
+            <h2>Edición</h2>
+            <p>Narrativa con ritmo</p>
+        </div>
+    </section>
+
+    <section>
+        <img src="drone.jpg" class="bg-img">
+        <div class="content">
+            <h2>Drone</h2>
+            <p>Nuevas perspectivas</p>
+            <a href="https://wa.me/?text=Hola%20Vastienm" class="contact-btn">Solicitar Presupuesto</a>
+        </div>
+    </section>
+
+    <footer>BUENOS AIRES • 2026</footer>
+
+</body>
+</html>
