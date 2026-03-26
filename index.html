@@ -3,163 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VASTIENM | Filmmaker & Editor</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Cormorant+Garamond:italic,wght@400;600&display=swap" rel="stylesheet">
+    <title>VASTIENM | Visual Storyteller</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Cormorant+Garamond:italic,wght@400;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
     <style>
         :root {
             --c-yellow: #FFD700;
             --c-black: #0a0a0a;
+            --c-grey: #1a1a1a;
+            --c-white: #ffffff;
             --f-title: 'Syne', sans-serif;
             --f-body: 'Cormorant Garamond', serif;
+            --f-mono: 'JetBrains Mono', monospace;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        body { background-color: var(--c-black); color: white; font-family: var(--f-body); overflow-x: hidden; line-height: 1.6; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* --- NAVEGACIÓN Y LOGO --- */
-        header {
-            position: fixed;
-            top: 0; width: 100%; height: 120px;
-            display: flex; align-items: center; justify-content: center;
-            z-index: 1000; transition: 0.5s;
+        body {
+            background-color: var(--c-black);
+            color: var(--c-white);
+            font-family: var(--f-body);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 4rem 1rem;
+            background-image: radial-gradient(circle at top, #1a1a1a 0%, #0a0a0a 100%);
         }
-        header.scrolled { height: 70px; background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px); justify-content: space-between; padding: 0 50px; }
-        
-        .logo-main { font-family: var(--f-title); font-size: 3rem; color: var(--c-yellow); text-transform: uppercase; letter-spacing: -3px; transition: 0.5s; }
-        header.scrolled .logo-main { font-size: 1.5rem; letter-spacing: -1px; }
 
-        .menu-trigger { position: fixed; top: 40px; right: 50px; z-index: 1100; font-family: var(--f-title); font-size: 0.8rem; letter-spacing: 3px; color: var(--c-yellow); cursor: pointer; border-bottom: 1px solid var(--c-yellow); }
+        .header { text-align: center; margin-bottom: 4rem; }
 
-        #side-menu {
-            position: fixed; top: 0; right: -100%; width: 100%; max-width: 400px; height: 100%;
-            background: #111; z-index: 2000; padding: 100px 50px; transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            border-left: 1px solid var(--c-yellow);
+        .logo-container h1 {
+            font-family: var(--f-title);
+            font-size: 3.5rem;
+            color: var(--c-yellow);
+            letter-spacing: -2px;
         }
-        #side-menu.open { right: 0; }
-        .menu-links { list-style: none; }
-        .menu-links li { margin-bottom: 30px; }
-        .menu-links a { color: white; text-decoration: none; font-family: var(--f-title); font-size: 2rem; text-transform: uppercase; transition: 0.3s; }
-        .menu-links a:hover { color: var(--c-yellow); }
 
-        /* --- SECCIONES DE CONTENIDO --- */
-        section { min-height: 100vh; padding: 140px 10% 80px 10%; display: flex; flex-direction: column; align-items: center; }
-        .section-title { font-family: var(--f-title); font-size: 3.5rem; color: var(--c-yellow); text-transform: uppercase; margin-bottom: 20px; text-align: center; }
-        
-        .grid-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; width: 100%; align-items: center; }
-        @media (max-width: 900px) { .grid-layout { grid-template-columns: 1fr; } }
-
-        .media-container { background: #1a1a1a; width: 100%; aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255, 215, 0, 0.2); }
-        .video-placeholder { width: 100%; height: 100%; background: #000; }
-
-        .text-box { font-size: 1.4rem; font-style: italic; }
-        .text-box p { margin-bottom: 20px; opacity: 0.9; }
-
-        /* --- ABOUT ME --- */
-        .about-content { max-width: 800px; text-align: center; font-size: 1.6rem; }
-        .about-content b { color: var(--c-yellow); }
-
-        /* --- CONTACTO --- */
-        .contact-btn {
-            display: inline-block; padding: 20px 40px; background: var(--c-yellow); color: black;
-            font-family: var(--f-title); text-decoration: none; text-transform: uppercase;
-            font-size: 1rem; letter-spacing: 2px; border-radius: 5px; transition: 0.3s;
+        .tagline {
+            font-style: italic;
+            font-size: 1.4rem;
+            color: rgba(255,255,255,0.7);
+            letter-spacing: 2px;
         }
-        .contact-btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2); }
 
-        footer { padding: 80px 20px; text-align: center; border-top: 1px solid rgba(255, 215, 0, 0.1); opacity: 0.6; letter-spacing: 4px; text-transform: uppercase; font-size: 0.8rem; }
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 1000px;
+            margin-bottom: 4rem;
+        }
+
+        .work-item {
+            position: relative;
+            aspect-ratio: 16 / 9;
+            background: var(--c-grey);
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: 0.3s ease;
+        }
+
+        .work-item img {
+            width: 100%; height: 100%; object-fit: cover; opacity: 0.6;
+        }
+
+        .work-info {
+            position: absolute; bottom: 20px; left: 20px;
+            font-family: var(--f-title); text-transform: uppercase; font-size: 0.9rem;
+        }
+
+        .links-container {
+            width: 100%; max-width: 400px;
+            display: flex; flex-direction: column; gap: 1rem;
+        }
+
+        .link-btn {
+            text-decoration: none; padding: 1.2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--c-white); font-family: var(--f-title);
+            font-weight: 800; text-transform: uppercase; text-align: center;
+            transition: 0.3s;
+        }
+
+        .link-btn:hover {
+            background-color: var(--c-yellow); color: var(--c-black);
+        }
+
+        footer { margin-top: auto; padding-top: 5rem; text-align: center; }
+
+        .timecode {
+            font-family: var(--f-mono); color: var(--c-yellow);
+            font-size: 0.8rem; margin-bottom: 0.5rem;
+        }
     </style>
 </head>
 <body>
 
-    <div class="menu-trigger" onclick="toggleMenu()">MENU</div>
-
-    <nav id="side-menu">
-        <div style="cursor:pointer; color:var(--c-yellow); margin-bottom: 40px;" onclick="toggleMenu()">← CERRAR</div>
-        <ul class="menu-links">
-            <li><a href="#filmmaker" onclick="toggleMenu()">Filmmaker</a></li>
-            <li><a href="#edicion" onclick="toggleMenu()">Edición</a></li>
-            <li><a href="#drone" onclick="toggleMenu()">Drone</a></li>
-            <li><a href="#about" onclick="toggleMenu()">About Me</a></li>
-            <li><a href="#contacto" onclick="toggleMenu()">Contacto</a></li>
-        </ul>
-    </nav>
-
-    <header id="nav">
-        <div class="logo-main">VASTIENM</div>
+    <header class="header">
+        <div class="logo-container">
+            <h1>VASTIENM</h1>
+        </div>
+        <div class="tagline">Visual Storyteller</div>
     </header>
 
-    <section id="filmmaker">
-        <h2 class="section-title">Filmmaker</h2>
-        <div class="grid-layout">
-            <div class="media-container">
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/TU_ID_AQUI" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="text-box">
-                <p>La dirección de fotografía y la captura de momentos reales son el corazón de mi trabajo.</p>
-                <p>Me enfoco en crear piezas cinematográficas que no solo se vean bien, sino que cuenten una historia profunda, cuidando cada encuadre y la intención de la luz.</p>
-            </div>
+    <div class="portfolio-grid">
+        <div class="work-item">
+            <img src="filmaker.jpg" alt="Filmmaker">
+            <div class="work-info">Cinematography</div>
         </div>
-    </section>
+        <div class="work-item">
+            <img src="drone.jpg" alt="Drone">
+            <div class="work-info">Aerial Perspective</div>
+        </div>
+    </div>
 
-    <section id="edicion" style="background: #0f0f0f;">
-        <h2 class="section-title">Edición</h2>
-        <div class="grid-layout">
-            <div class="text-box">
-                <p>Post-producción de alto impacto.</p>
-                <p>Como editor, mi objetivo es encontrar el ritmo perfecto. Me especializo en seleccionar proyectos de alta calidad, dedicando el tiempo necesario para que cada corte tenga un propósito narrativo.</p>
-            </div>
-            <div class="media-container">
-                <img src="tu-foto-edicion.jpg" alt="Edición de video" style="width:100%; height:100%; object-fit:cover;">
-            </div>
-        </div>
-    </section>
-
-    <section id="drone">
-        <h2 class="section-title">Drone</h2>
-        <div class="grid-layout">
-            <div class="media-container">
-                <div class="video-placeholder">[ VIDEO DE DRONE AQUÍ ]</div>
-            </div>
-            <div class="text-box">
-                <p>Perspectivas que elevan tu marca.</p>
-                <p>Capturas aéreas en alta resolución para publicidad, eventos y producciones cinematográficas, aportando ese ángulo épico que solo el cielo permite.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" style="background: #0d0d0d;">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
-            <p>Soy <b>Sebastian</b>, filmmaker y editor de video con base en Argentina. A mis 39 años, mi carrera se define por la búsqueda constante de la <b>calidad estética</b> y la potencia visual.</p>
-            <p>Más allá de la técnica, soy un apasionado de la música y la narrativa, elementos que inyecto en cada proyecto que toco. Mi enfoque es simple: trabajar en proyectos que valgan la pena, aportando una mirada única y profesional.</p>
-        </div>
-    </section>
-
-    <section id="contacto">
-        <h2 class="section-title">Hablemos</h2>
-        <div style="text-align: center;">
-            <p style="margin-bottom: 30px;">¿Tenés un proyecto en mente? Ponete en contacto conmigo directamente.</p>
-            <a href="https://wa.me/5491100000000?text=Hola%20Sebastian,%20vi%20tu%20web%20y%20me%20gustaría%20consultarte..." target="_blank" class="contact-btn">
-                Enviar mensaje por WhatsApp
-            </a>
-        </div>
-    </section>
+    <div class="links-container">
+        <a href="https://www.instagram.com/vastienm" class="link-btn">Instagram</a>
+        <a href="https://wa.me/?text=Hola" class="link-btn">WhatsApp</a>
+    </div>
 
     <footer>
-        Norberto de la Riestra • Argentina
+        <div class="timecode" id="timecode">00:00:00:00</div>
+        <div class="location">BUENOS AIRES • 2026</div>
     </footer>
 
     <script>
-        window.addEventListener('scroll', function() {
-            const nav = document.getElementById('nav');
-            if (window.scrollY > 50) { nav.classList.add('scrolled'); }
-            else { nav.classList.remove('scrolled'); }
-        });
-
-        function toggleMenu() {
-            document.getElementById('side-menu').classList.toggle('open');
+        function updateTime() {
+            const now = new Date();
+            const h = String(now.getHours()).padStart(2, '0');
+            const m = String(now.getMinutes()).padStart(2, '0');
+            const s = String(now.getSeconds()).padStart(2, '0');
+            const f = String(Math.floor(now.getMilliseconds() / 40)).padStart(2, '0');
+            document.getElementById('timecode').textContent = `${h}:${m}:${s}:${f}`;
         }
+        setInterval(updateTime, 40);
+        updateTime();
     </script>
 </body>
 </html>
