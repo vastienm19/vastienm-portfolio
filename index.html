@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VASTIENM | Visual Storyteller</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Cormorant+Garamond:italic,wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Cormorant+Garamond:italic,wght@400&display=swap" rel="stylesheet">
     <style>
         :root {
             --c-yellow: #FFD700;
@@ -15,36 +15,36 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: var(--c-black); color: white; font-family: var(--f-body); overflow-x: hidden; }
+        body { background-color: var(--c-black); color: white; font-family: var(--f-body); }
 
+        /* --- Header Mejorado --- */
         header {
-            padding: 3rem 1rem;
+            padding: 1.5rem 1rem; /* Más compacto */
             text-align: center;
             position: fixed;
             width: 100%;
             z-index: 100;
-            background: linear-gradient(to bottom, rgba(10,10,10,1) 0%, rgba(10,10,10,0) 100%);
+            /* Degradado más sutil para no tapar tanto */
+            background: linear-gradient(to bottom, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0) 100%);
+            backdrop-filter: blur(5px); /* Efecto de vidrio para que no choque visualmente */
         }
 
-        /* DISEÑO DE LOGO POR CÓDIGO (Para que no tenga fondo negro) */
         .logo-main {
             font-family: var(--f-title);
-            font-size: 2.8rem;
-            font-weight: 800;
+            font-size: 1.8rem; /* Tamaño reducido para no invadir */
             color: var(--c-yellow);
             text-transform: uppercase;
-            letter-spacing: -3px; /* Esto pega las letras como en tu logo */
-            line-height: 0.8;
+            letter-spacing: -1px;
+            line-height: 1;
             display: block;
         }
         .logo-sub {
             font-family: var(--f-body);
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             font-style: italic;
-            color: white;
             display: block;
-            margin-top: 5px;
-            letter-spacing: 1px;
+            margin-top: 2px;
+            opacity: 0.8;
         }
 
         section {
@@ -54,6 +54,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow: hidden;
             border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
@@ -62,72 +63,18 @@
             top: 0; left: 0;
             width: 100%; height: 100%;
             object-fit: cover;
-            opacity: 0.5; /* Aquí controlás qué tan oscura se ve la foto */
+            opacity: 0.4; /* Bajé un poco la opacidad para que el texto resalte más */
         }
 
-        .content { position: relative; z-index: 2; text-align: center; }
+        .content { 
+            position: relative; 
+            z-index: 2; 
+            text-align: center; 
+            padding-top: 60px; /* Espacio extra para que el header no pise el título inicial */
+        }
 
         h2 {
             font-family: var(--f-title);
-            font-size: clamp(3rem, 12vw, 5rem);
+            font-size: clamp(2.5rem, 12vw, 4.5rem);
             text-transform: uppercase;
-            color: var(--c-yellow);
-            letter-spacing: -2px;
-        }
-
-        p { font-size: 1.5rem; font-style: italic; margin-top: 10px; }
-
-        .contact-btn {
-            display: inline-block;
-            margin-top: 2rem;
-            padding: 1.2rem 2.5rem;
-            border: 2px solid var(--c-yellow);
-            color: var(--c-yellow);
-            text-decoration: none;
-            font-family: var(--f-title);
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            background: rgba(0,0,0,0.4);
-        }
-
-        footer { padding: 2rem; text-align: center; font-size: 0.7rem; color: #444; }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="logo-text">
-            <span class="logo-main">VASTIENM</span>
-            <span class="logo-sub">visual storyteller</span>
-        </div>
-    </header>
-
-    <section>
-        <img src="filmmaker.jpg" class="bg-img">
-        <div class="content">
-            <h2>Filmmaker</h2>
-            <p>Capturando la esencia</p>
-        </div>
-    </section>
-
-    <section>
-        <img src="edicion.png" class="bg-img">
-        <div class="content">
-            <h2>Edición</h2>
-            <p>Narrativa con ritmo</p>
-        </div>
-    </section>
-
-    <section>
-        <img src="drone.jpg" class="bg-img">
-        <div class="content">
-            <h2>Drone</h2>
-            <p>Nuevas perspectivas</p>
-            <a href="https://wa.me/?text=Hola%20Vastienm" class="contact-btn">Solicitar Presupuesto</a>
-        </div>
-    </section>
-
-    <footer>BUENOS AIRES • 2026</footer>
-
-</body>
-</html>
+            color: var(--c-
