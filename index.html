@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VASTIENM | Visual Storyteller</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Cormorant+Garamond:italic,wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Cormorant+Garamond:italic,wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --c-yellow: #FFD700;
@@ -17,11 +17,11 @@
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body { background-color: var(--c-black); color: white; font-family: var(--f-body); overflow-x: hidden; }
 
-        /* --- LOGO DISEÑADO (Exacto a tu imagen) --- */
+        /* --- LOGO DINÁMICO --- */
         header {
             position: fixed;
             top: 0; width: 100%;
-            height: 200px;
+            height: 180px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -29,42 +29,36 @@
             transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .logo-container { text-align: center; transition: all 0.7s ease; }
-
+        .logo-container { text-align: center; transition: all 0.7s; }
         .logo-main {
             font-family: var(--f-title);
-            font-size: 4.5rem; /* Tamaño de impacto */
-            font-weight: 800;
+            font-size: 4rem;
             color: var(--c-yellow);
             text-transform: uppercase;
-            letter-spacing: -5px; /* CLAVE: Letras pegadas como tu logo */
+            letter-spacing: -5px;
             line-height: 0.75;
             display: block;
         }
-
         .logo-sub {
             font-family: var(--f-body);
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-style: italic;
-            color: #ffffff;
             display: block;
             margin-top: 8px;
-            letter-spacing: 1px;
         }
 
-        /* LOGO CUANDO SCROLLEAS (Se va a la esquina) */
         header.scrolled {
-            height: 90px;
+            height: 80px;
             background: rgba(10, 10, 10, 0.95);
             backdrop-filter: blur(15px);
             justify-content: flex-start;
             padding-left: 40px;
         }
-        header.scrolled .logo-main { font-size: 1.8rem; letter-spacing: -1.5px; }
-        header.scrolled .logo-sub { font-size: 0.8rem; margin-top: 2px; }
+        header.scrolled .logo-main { font-size: 1.6rem; letter-spacing: -1.5px; }
+        header.scrolled .logo-sub { font-size: 0.7rem; margin-top: 2px; }
 
-        /* --- MENÚ LATERAL --- */
-        .menu-btn {
+        /* --- MENÚ LATERAL (Overlay) --- */
+        .menu-trigger {
             position: fixed;
             top: 35px; right: 40px;
             z-index: 1100;
@@ -76,10 +70,47 @@
             border-bottom: 1px solid var(--c-yellow);
         }
 
-        /* --- SECCIONES CON MARCO (Estilo Pomelli) --- */
+        #side-menu {
+            position: fixed;
+            top: 0; right: -100%;
+            width: 350px; height: 100%;
+            background: #111;
+            z-index: 2000;
+            padding: 80px 40px;
+            transition: 0.5s;
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid var(--c-yellow);
+        }
+
+        #side-menu.open { right: 0; }
+
+        .close-menu {
+            position: absolute;
+            top: 35px; right: 40px;
+            cursor: pointer;
+            color: var(--c-yellow);
+            font-family: var(--f-title);
+            font-size: 0.8rem;
+        }
+
+        .menu-links { margin-top: 50px; list-style: none; }
+        .menu-links li { margin-bottom: 30px; }
+        .menu-links a {
+            color: white;
+            text-decoration: none;
+            font-family: var(--f-title);
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            transition: 0.3s;
+        }
+        .menu-links a:hover { color: var(--c-yellow); padding-left: 10px; }
+
+        /* --- SECCIONES (Estilo Refinado) --- */
         section {
             height: 100vh;
-            padding: 100px 40px 40px 40px;
+            padding: 120px 60px 60px 60px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -87,3 +118,123 @@
 
         .border-frame {
             position: relative;
+            width: 100%; height: 100%;
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
+        }
+
+        .bg-img {
+            position: absolute;
+            width: calc(100% - 40px);
+            height: calc(100% - 40px);
+            object-fit: cover;
+            opacity: 0.4;
+            transition: 1.5s ease;
+        }
+
+        section:hover .bg-img { transform: scale(1.05); opacity: 0.5; }
+
+        .content { position: relative; z-index: 10; text-align: center; }
+
+        h2 {
+            font-family: var(--f-title);
+            font-size: clamp(2.5rem, 8vw, 4.5rem); /* Achicamos la tipografía */
+            text-transform: uppercase;
+            color: var(--c-yellow);
+            letter-spacing: -2px;
+            line-height: 0.9;
+        }
+
+        .content p {
+            font-size: 1.6rem;
+            font-style: italic;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        footer { 
+            padding: 60px; 
+            text-align: center; 
+            opacity: 0.5; 
+            font-size: 0.8rem; 
+            letter-spacing: 3px; 
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="menu-trigger" onclick="toggleMenu()">MENU</div>
+
+    <nav id="side-menu">
+        <div class="close-menu" onclick="toggleMenu()">CERRAR</div>
+        <ul class="menu-links">
+            <li><a href="#filmmaker" onclick="toggleMenu()">Filmmaker</a></li>
+            <li><a href="#edicion" onclick="toggleMenu()">Edición</a></li>
+            <li><a href="#drone" onclick="toggleMenu()">Drone</a></li>
+            <li><a href="#about" onclick="toggleMenu()">About Me</a></li>
+            <li><a href="https://wa.me/?text=Hola%20Vastienm" onclick="toggleMenu()">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <header id="navbar">
+        <div class="logo-container">
+            <span class="logo-main">VASTIENM</span>
+            <span class="logo-sub">visual storyteller</span>
+        </div>
+    </header>
+
+    <section id="filmmaker">
+        <div class="border-frame">
+            <img src="filmmaker.jpg" class="bg-img">
+            <div class="content">
+                <h2>Filmmaker</h2>
+                <p>Capturando la esencia</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="edicion">
+        <div class="border-frame">
+            <img src="edicion.png" class="bg-img">
+            <div class="content">
+                <h2>Edición</h2>
+                <p>Narrativa con ritmo</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="drone">
+        <div class="border-frame">
+            <img src="drone.jpg" class="bg-img">
+            <div class="content">
+                <h2>Drone</h2>
+                <p>Nuevas perspectivas</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        Norberto de la Riestra • Argentina
+    </footer>
+
+    <script>
+        // Control de Scroll para el Logo
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 80) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Control del Menú Lateral
+        function toggleMenu() {
+            const menu = document.getElementById('side-menu');
+            menu.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
