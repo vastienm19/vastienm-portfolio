@@ -24,17 +24,18 @@
 
         /* --- Header con Logo --- */
         header {
-            padding: 1.5rem;
+            padding: 2.5rem 1rem;
             text-align: center;
-            background: linear-gradient(to bottom, rgba(10,10,10,1), rgba(10,10,10,0));
+            background: linear-gradient(to bottom, rgba(10,10,10,0.9), rgba(10,10,10,0));
             position: fixed;
             width: 100%;
             z-index: 10;
         }
 
         .logo-img {
-            max-width: 180px; /* Ajustá el tamaño de tu logo acá */
+            max-width: 220px; /* Lo agrandé un poco para que se vea bien */
             height: auto;
+            display: inline-block;
         }
 
         /* --- Secciones Verticales --- */
@@ -54,43 +55,47 @@
             top: 0; left: 0;
             width: 100%; height: 100%;
             object-fit: cover;
-            opacity: 0.4; /* Oscurece un poco más para que el logo y textos resalten */
+            opacity: 0.5;
         }
 
         .content {
             position: relative;
             z-index: 2;
             text-align: center;
-            padding: 0 1rem;
+            padding: 0 1.5rem;
         }
 
         h2 {
             font-family: var(--f-title);
-            font-size: clamp(2.5rem, 10vw, 4rem); /* Tamaño fluido para mobile */
+            font-size: clamp(2.8rem, 12vw, 4.5rem);
             text-transform: uppercase;
             line-height: 0.9;
             margin-bottom: 0.5rem;
             color: var(--c-yellow);
+            text-shadow: 0 0 20px rgba(0,0,0,0.5);
         }
 
         p {
-            font-size: clamp(1.2rem, 5vw, 1.8rem);
+            font-size: clamp(1.3rem, 6vw, 2rem);
             font-style: italic;
-            opacity: 0.9;
+            opacity: 1;
+            text-shadow: 0 0 10px rgba(0,0,0,0.8);
         }
 
         .contact-btn {
             display: inline-block;
-            margin-top: 2rem;
-            padding: 1rem 2rem;
-            border: 1px solid var(--c-yellow);
+            margin-top: 2.5rem;
+            padding: 1.2rem 2.5rem;
+            border: 2px solid var(--c-yellow);
             color: var(--c-yellow);
             text-decoration: none;
             font-family: var(--f-title);
             text-transform: uppercase;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
+            font-weight: bold;
             letter-spacing: 2px;
             transition: 0.3s;
+            background: rgba(0,0,0,0.3);
         }
 
         .contact-btn:hover {
@@ -99,11 +104,11 @@
         }
 
         footer {
-            padding: 2rem;
+            padding: 3rem;
             text-align: center;
             font-size: 0.7rem;
-            color: #555;
-            letter-spacing: 2px;
+            color: #666;
+            letter-spacing: 3px;
         }
     </style>
 </head>
@@ -114,7 +119,7 @@
     </header>
 
     <section>
-        <img src="filmmaker.jpg" class="bg-img" alt="Filmmaking">
+        <img src="filmmaker.jpg" class="bg-img" alt="Filmmaker">
         <div class="content">
             <h2>Filmmaker</h2>
             <p>Capturando la esencia</p>
@@ -122,7 +127,7 @@
     </section>
 
     <section>
-        <img src="edicion.png" class="bg-img" alt="Edición">
+        <img src="edicion%20.png" class="bg-img" alt="Edición">
         <div class="content">
             <h2>Edición</h2>
             <p>Narrativa con ritmo</p>
