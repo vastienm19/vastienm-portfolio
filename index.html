@@ -6,26 +6,34 @@
     <title>VASTIENM</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: #0a0a0a; color: white; font-family: sans-serif; }
+        
+        body { 
+            background-color: #0a0a0a; 
+            color: white; 
+            font-family: 'Helvetica', 'Arial', sans-serif; 
+        }
 
-        /* HEADER FIJO PERO CHICO */
+        /* BARRA SUPERIOR FIJA (Muy fina para no tapar nada) */
         header {
             position: fixed;
-            top: 0; width: 100%;
-            padding: 1.5rem;
-            text-align: center;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+            top: 0;
+            width: 100%;
+            padding: 1rem;
+            background: rgba(10, 10, 10, 0.9);
             z-index: 100;
+            text-align: center;
+            border-bottom: 1px solid #222;
         }
 
-        .logo {
-            font-weight: 900;
-            font-size: 1.5rem;
+        .brand-name {
             color: #FFD700;
+            font-weight: 900;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            letter-spacing: -1px;
         }
 
+        /* SECCIONES SCROLLEABLES */
         section {
             height: 100vh;
             width: 100%;
@@ -33,33 +41,41 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border-bottom: 1px solid #222;
+            overflow: hidden;
         }
 
-        .bg {
+        .bg-img {
             position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            opacity: 0.4;
+            opacity: 0.4; /* Oscurece la foto para resaltar el texto */
         }
 
-        .txt {
+        .content {
             position: relative;
             z-index: 10;
             text-align: center;
+            padding-top: 50px; /* Para que no lo pise el header al cargar */
         }
 
         h2 {
-            font-size: 3.5rem;
-            text-transform: uppercase;
+            font-size: clamp(3rem, 15vw, 6rem);
             color: #FFD700;
-            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            line-height: 0.9;
         }
 
-        p { font-size: 1.2rem; font-style: italic; color: #ccc; }
+        p {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-top: 10px;
+            color: #ddd;
+        }
 
-        .btn {
+        .contact-btn {
             display: inline-block;
             margin-top: 2rem;
             padding: 1rem 2rem;
@@ -68,39 +84,51 @@
             text-decoration: none;
             font-weight: bold;
             text-transform: uppercase;
+            transition: 0.3s;
         }
 
-        footer { padding: 2rem; text-align: center; color: #444; font-size: 0.8rem; }
+        .contact-btn:hover {
+            background: #FFD700;
+            color: black;
+        }
+
+        footer {
+            padding: 2rem;
+            text-align: center;
+            background: #0a0a0a;
+            color: #444;
+            font-size: 0.8rem;
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">VASTIENM</div>
+        <div class="brand-name">VASTIENM</div>
     </header>
 
     <section>
-        <img src="filmmaker.jpg" class="bg">
-        <div class="txt">
+        <img src="filmmaker.jpg" class="bg-img" alt="Filmmaker">
+        <div class="content">
             <h2>Filmmaker</h2>
             <p>Capturando la esencia</p>
         </div>
     </section>
 
     <section>
-        <img src="edicion .png" class="bg">
-        <div class="txt">
+        <img src="edicion.png" class="bg-img" alt="Edición">
+        <div class="content">
             <h2>Edición</h2>
             <p>Narrativa con ritmo</p>
         </div>
     </section>
 
     <section>
-        <img src="drone.jpg" class="bg">
-        <div class="txt">
+        <img src="drone.jpg" class="bg-img" alt="Drone">
+        <div class="content">
             <h2>Drone</h2>
             <p>Nuevas perspectivas</p>
-            <a href="https://wa.me/?text=Hola%20Vastienm" class="btn">Contacto</a>
+            <a href="https://wa.me/?text=Hola%20Vastienm" class="contact-btn">Contacto</a>
         </div>
     </section>
 
