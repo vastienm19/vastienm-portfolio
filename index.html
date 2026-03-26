@@ -17,34 +17,29 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background-color: var(--c-black); color: white; font-family: var(--f-body); }
 
-        /* --- Header Mejorado --- */
+        /* --- HEADER EN LA ESQUINA (Para que no tape nada) --- */
         header {
-            padding: 1.5rem 1rem; /* Más compacto */
-            text-align: center;
             position: fixed;
-            width: 100%;
+            top: 20px;
+            left: 20px;
             z-index: 100;
-            /* Degradado más sutil para no tapar tanto */
-            background: linear-gradient(to bottom, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0) 100%);
-            backdrop-filter: blur(5px); /* Efecto de vidrio para que no choque visualmente */
+            text-align: left;
         }
 
         .logo-main {
             font-family: var(--f-title);
-            font-size: 1.8rem; /* Tamaño reducido para no invadir */
+            font-size: 1.4rem;
             color: var(--c-yellow);
             text-transform: uppercase;
             letter-spacing: -1px;
             line-height: 1;
-            display: block;
         }
         .logo-sub {
             font-family: var(--f-body);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-style: italic;
             display: block;
-            margin-top: 2px;
-            opacity: 0.8;
+            opacity: 0.7;
         }
 
         section {
@@ -55,7 +50,7 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
         .bg-img {
@@ -63,18 +58,77 @@
             top: 0; left: 0;
             width: 100%; height: 100%;
             object-fit: cover;
-            opacity: 0.4; /* Bajé un poco la opacidad para que el texto resalte más */
+            opacity: 0.4;
         }
 
         .content { 
             position: relative; 
             z-index: 2; 
             text-align: center; 
-            padding-top: 60px; /* Espacio extra para que el header no pise el título inicial */
         }
 
         h2 {
             font-family: var(--f-title);
-            font-size: clamp(2.5rem, 12vw, 4.5rem);
+            font-size: clamp(3rem, 15vw, 6rem);
             text-transform: uppercase;
-            color: var(--c-
+            color: var(--c-yellow);
+            line-height: 0.8;
+            margin-bottom: 10px;
+        }
+
+        p { font-size: 1.6rem; font-style: italic; }
+
+        .contact-btn {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            border: 1px solid var(--c-yellow);
+            color: var(--c-yellow);
+            text-decoration: none;
+            font-family: var(--f-title);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            background: rgba(0,0,0,0.5);
+        }
+
+        footer { padding: 2rem; text-align: center; font-size: 0.7rem; color: #444; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-text">
+            <span class="logo-main">VASTIENM</span>
+            <span class="logo-sub">visual storyteller</span>
+        </div>
+    </header>
+
+    <section>
+        <img src="filmmaker.jpg" class="bg-img">
+        <div class="content">
+            <h2>Filmmaker</h2>
+            <p>Capturando la esencia</p>
+        </div>
+    </section>
+
+    <section>
+        <img src="edicion .png" class="bg-img" onerror="this.src='edicion.png'">
+        <div class="content">
+            <h2>Edición</h2>
+            <p>Narrativa con ritmo</p>
+        </div>
+    </section>
+
+    <section>
+        <img src="drone.jpg" class="bg-img">
+        <div class="content">
+            <h2>Drone</h2>
+            <p>Nuevas perspectivas</p>
+            <a href="https://wa.me/?text=Hola%20Vastienm" class="contact-btn">Solicitar Presupuesto</a>
+        </div>
+    </section>
+
+    <footer>BUENOS AIRES • 2026</footer>
+
+</body>
+</html>
